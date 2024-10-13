@@ -8,17 +8,32 @@ internal class Program
         IntSorter sorter = new MergeSort();
 
         //variable
-        int firstN = 10000;
+        int firstN = 20;
         //skriv ut osorterad
 
         Console.WriteLine("Unordered:");
-        TestSort.testSort(sorter, firstN, false);
-        Console.WriteLine("\nOrdered:");
+        
+        int[] unordered = ArrayUtil.CreateShuffeled(firstN);
+        PrintArray(unordered);
+        //TestSort.testSort(sorter, firstN, false);
 
+
+        Console.WriteLine("\nOrdered:");
+        int[] orderd = ArrayUtil.CreateOrdered(firstN);
         //skriv ut sorterad
-        TestSort.testSort(sorter, firstN, true);
+        PrintArray(orderd);
+        //TestSort.testSort(sorter, firstN, true);
+
 
         Console.WriteLine("\n" + sorter.GetType().Name + ".sort tested ok!");
         Environment.Exit(0);
+    }
+    public static void PrintArray(int[] array)
+    {
+        foreach (var value in array)
+        {
+            Console.Write(value + " ");
+        }
+        Console.WriteLine(); // För att lägga till en ny rad efter utskriften
     }
 }
